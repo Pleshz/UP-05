@@ -6,16 +6,12 @@
         private string name { get; set; }
         private string description { get; set; }
         private bool isPublic { get; set; }
-        public Project(Project project = null) 
+        public Project(int id, string name, string description, bool isPublic) 
         {
-            if (project != null) 
-            {
-                this.id = project.id;
-                this.name = project.name;
-                this.description = project.description;
-                this.isPublic = project.isPublic;
-            }
+            this.id = id;
+            this.name = name;
+            this.description = description;
+            this.isPublic = isPublic;
         }
-        public Project() { }
     }
 }

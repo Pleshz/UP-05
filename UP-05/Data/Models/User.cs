@@ -9,18 +9,14 @@
         private string fullName { get; set; }
         private string bio { get; set; }
 
-        public User(User user = null) 
+        public User(int id, string login, string email, string password, string fullName, string bio) 
         {
-            if (user != null) 
-            {
-                this.id = user.id;
-                this.login = user.login;
-                this.email = user.email;
-                this.password = user.password;
-                this.fullName = user.fullName;
-                this.bio = user.bio;
-            }
+            this.id = id;
+            this.login = login;
+            this.email = email;
+            this.password = password;
+            this.fullName = fullName;
+            this.bio = bio;
         }
-        public User() { }
     }
 }
