@@ -1,0 +1,44 @@
+﻿<Page x:Class="UP.Pages.Registration"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:UP.Pages"
+      mc:Ignorable="d" 
+      Height="450" Width="800" MinHeight="450" MinWidth="800" Title="Registration">
+
+    <Grid Background="#f5f7fa" Margin="30">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="15">
+            <TextBlock Text="Добро пожаловать в систему управления проектами" FontSize="28" FontWeight="Bold" Foreground="#333" TextWrapping="Wrap" />
+            <TextBlock Text="Зарегестрируйтесь чтобы начать" FontSize="16" Margin="0,10,0,0" Foreground="#555" />
+        </StackPanel>
+
+        <Border Grid.Column="1" Background="White" Padding="20" CornerRadius="10" >
+            <StackPanel>
+                <TextBlock Text="Создать аккаунт" FontSize="24" FontWeight="Bold" Foreground="#222" Margin="0,0,0,20" />
+
+                <StackPanel Margin="0,0,0,10">
+                    <TextBlock Text="Логин" FontWeight="SemiBold" Foreground="#555" />
+                    <TextBox x:Name="LoginTextBox" Height="25" FontSize="16" />
+                </StackPanel>
+
+                <StackPanel Margin="0,0,0,10">
+                    <TextBlock Text="Почта" FontWeight="SemiBold" Foreground="#555" />
+                    <TextBox x:Name="EmailTextBox" Height="25" FontSize="16" />
+                </StackPanel>
+                
+                <StackPanel Margin="0,0,0,10">
+                    <TextBlock Text="Почта" FontWeight="SemiBold" Foreground="#555" />
+                    <PasswordBox x:Name="PasswordBox" Height="25" FontSize="16" />
+                </StackPanel>
+
+                <Button Content="Зарегестрироваться" Height="30" Background="#007ACC" Foreground="White" FontSize="16" FontWeight="Bold" Cursor="Hand" />
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

@@ -1,0 +1,51 @@
+﻿<Page x:Class="UP.Pages.Profile"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:UP.Pages"
+      mc:Ignorable="d" 
+      Height="450" Width="800" MinHeight="450" MinWidth="800" Title="Profile">
+
+    <Grid Background="#f5f7fa" Margin="20">
+        <Border Background="White" Padding="20" CornerRadius="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MaxWidth="700">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="60"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Профиль" Grid.ColumnSpan="2" FontSize="24" FontWeight="Bold" Margin="0,0,0,20" Foreground="#222"/>
+
+                <TextBlock Text="Логин:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" FontWeight="SemiBold" Foreground="#555"/>
+                <TextBox x:Name="LoginTextBox" Grid.Row="1" Grid.Column="1" Height="30" Margin="0,5" IsReadOnly="True" FontSize="16" />
+
+                <TextBlock Text="Почта:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" FontWeight="SemiBold" Foreground="#555"/>
+                <TextBox x:Name="EmailTextBox" Grid.Row="2" Grid.Column="1" Height="30" Margin="0,5" FontSize="16"/>
+
+                <TextBlock Text="Полное имя:" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" FontWeight="SemiBold" Foreground="#555"/>
+                <TextBox x:Name="FullNameTextBox" Grid.Row="3" Grid.Column="1" Height="30" Margin="0,5" FontSize="16"/>
+
+                <TextBlock Text="Био:" Grid.Row="4" Grid.Column="0" VerticalAlignment="Top" FontWeight="SemiBold" Foreground="#555"/>
+                <TextBox x:Name="BioTextBox" Grid.Row="4" Grid.Column="1" Height="80" Margin="0,5" TextWrapping="Wrap" AcceptsReturn="True" FontSize="16"/>
+
+                <TextBlock Text="Изменить пароль:" Grid.Row="5" Grid.Column="0" VerticalAlignment="Center" FontWeight="SemiBold" Foreground="#555"/>
+                <PasswordBox x:Name="PasswordBox" Grid.Row="5" Grid.Column="1" Height="30" Margin="0,5" FontSize="16"/>
+
+                <StackPanel Orientation="Horizontal" Grid.Row="6" Grid.ColumnSpan="2" HorizontalAlignment="Right" Margin="0,10,0,0" >
+                    <Button Content="Сохранить изменения" Width="190" Height="40" Background="#007ACC" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,0,10,0" Cursor="Hand" />
+                    <Button Content="Перейти к проектам" Width="190" Height="40" Background="#28a745" Foreground="White" FontSize="16" FontWeight="Bold" Cursor="Hand"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Page>
