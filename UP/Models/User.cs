@@ -13,7 +13,6 @@ namespace UP.Models
         public string FullName { get; set; }
         public string Bio { get; set; }
 
-        //Конструктор для создания нового пользователя
         public User(string Login, string Email, string Password, DateTime CreatedAt, DateTime UpdateAt, string FullName = null, string Bio = null) {
             this.Login = Login;
             this.Email = Email;
@@ -24,7 +23,6 @@ namespace UP.Models
             this.Bio = Bio;
         }
 
-        //Конструктор для загрузки пользователя из БД
         public User(int Id, string Login, string Email, string Password, DateTime CreatedAt, DateTime UpdateAt, string FullName, string Bio)
         {
             this.Id = Id;

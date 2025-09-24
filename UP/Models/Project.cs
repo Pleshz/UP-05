@@ -12,7 +12,6 @@ namespace UP.Models
         public DateTime CreatedAt { get; set; }
         public DateTime UpdateAt { get; set; }
 
-        //Конструктор для создания нового проекта
         public Project(string Name, string Description, bool isPublic, int CreatorId, DateTime CreatedAt, DateTime UpdateAt)
         {
             this.Name = Name;
@@ -23,7 +22,6 @@ namespace UP.Models
             this.UpdateAt = UpdateAt;
         }
 
-        //Конструктор для загрузки проекта из БД
         public Project(int Id, string Name, string Description, bool isPublic, int CreatorId, DateTime CreatedAt, DateTime UpdateAt) {
             this.Id = Id;
             this.Name = Name;

@@ -18,7 +18,6 @@ namespace UP.Models
         public DateTime UpdatedAt { get; set; }
         public DateTime? DueDate { get; set; }
 
-        //Конструктор для создания новой задачи
         public Task(string Title, string Description, int ColumnId, int ProjectId, int CreatorId, DateTime CreatedAt, DateTime UpdatedAt, DateTime? DueDate = null)
         {
             this.Title = Title;
@@ -31,7 +30,6 @@ namespace UP.Models
             this.DueDate = DueDate;
         }
 
-        //Конструктор для загрузки задачи из БД
         public Task(int Id, string Title, string Description, int ColumnId, int ProjectId, int CreatorId, DateTime CreatedAt, DateTime UpdatedAt, DateTime? DueDate) {
             this.Id = Id;
             this.Title = Title;
