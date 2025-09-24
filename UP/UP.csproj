@@ -116,6 +116,18 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Classes\Common\Connection.cs" />
+    <Compile Include="Classes\Context\ColumnContext.cs" />
+    <Compile Include="Classes\Context\ProjectContext.cs" />
+    <Compile Include="Classes\Context\SubtaskContext.cs" />
+    <Compile Include="Classes\Context\TaskContext.cs" />
+    <Compile Include="Classes\Context\UserContext.cs" />
+    <Compile Include="Classes\Context\UserProjectRoleContext.cs" />
+    <Compile Include="Interfaces\IColumn.cs" />
+    <Compile Include="Interfaces\IProject.cs" />
+    <Compile Include="Interfaces\ISubtask.cs" />
+    <Compile Include="Interfaces\ITask.cs" />
+    <Compile Include="Interfaces\IUser.cs" />
+    <Compile Include="Interfaces\IUserProjectRole.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -155,10 +167,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Classes\Context\" />
     <Folder Include="Elements\" />
     <Folder Include="Img\" />
-    <Folder Include="Interfaces\" />
     <Folder Include="Pages\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
