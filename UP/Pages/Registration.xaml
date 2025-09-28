@@ -33,11 +33,11 @@
                 </StackPanel>
                 
                 <StackPanel Margin="0,0,0,10">
-                    <TextBlock Text="Почта" FontWeight="SemiBold" Foreground="#555" />
+                    <TextBlock Text="Пароль" FontWeight="SemiBold" Foreground="#555" />
                     <PasswordBox x:Name="PasswordBox" Height="25" FontSize="16" />
                 </StackPanel>
 
-                <Button Content="Зарегестрироваться" Height="30" Background="#007ACC" Foreground="White" FontSize="16" FontWeight="Bold" Cursor="Hand" />
+                <Button Click="Register" Content="Зарегестрироваться" Height="30" Background="#007ACC" Foreground="White" FontSize="16" FontWeight="Bold" Cursor="Hand" />
             </StackPanel>
         </Border>
     </Grid>

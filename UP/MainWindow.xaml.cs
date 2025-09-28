@@ -5,7 +5,7 @@ namespace UP
 {
     public partial class MainWindow : Window
     {
-        public MainWindow init;
+        public static MainWindow init;
         public MainWindow()
         {
             InitializeComponent();
