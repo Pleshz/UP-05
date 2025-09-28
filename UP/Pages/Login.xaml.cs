@@ -34,6 +34,7 @@ namespace UP.Pages
                 return;
             }
 
+            MainWindow.CurrentUser = (UserContext)user;
             MainWindow.init.OpenPages(MainWindow.pages.profile);
         }
     }

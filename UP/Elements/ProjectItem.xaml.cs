@@ -13,11 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace UP.Pages
+namespace UP.Elements
 {
-    public partial class ProjectsList : Page
+    /// <summary>
+    /// Логика взаимодействия для ProjectItem.xaml
+    /// </summary>
+    public partial class ProjectItem : UserControl
     {
-        public ProjectsList()
+        public ProjectItem()
         {
             InitializeComponent();
         }

@@ -107,6 +107,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Elements\ProjectItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -122,6 +126,9 @@
     <Compile Include="Classes\Context\TaskContext.cs" />
     <Compile Include="Classes\Context\UserContext.cs" />
     <Compile Include="Classes\Context\UserProjectRoleContext.cs" />
+    <Compile Include="Elements\ProjectItem.xaml.cs">
+      <DependentUpon>ProjectItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\IColumn.cs" />
     <Compile Include="Interfaces\IProject.cs" />
     <Compile Include="Interfaces\ISubtask.cs" />
@@ -216,7 +223,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Elements\" />
     <Folder Include="Img\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

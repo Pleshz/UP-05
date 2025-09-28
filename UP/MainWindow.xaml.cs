@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using UP.Classes.Context;
 using UP.Pages;
 
 namespace UP
@@ -6,6 +7,8 @@ namespace UP
     public partial class MainWindow : Window
     {
         public static MainWindow init;
+        public static UserContext CurrentUser { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();

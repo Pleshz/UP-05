@@ -17,7 +17,7 @@ namespace UP.Pages
         {
             string login = LoginTextBox.Text.Trim();
             string email = EmailTextBox.Text.Trim();
-            string password = PasswordBox.Password;
+            string password = PasswordBox.Password.Trim();
 
             if (string.IsNullOrEmpty(login) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password)) 
             {
