@@ -1,28 +1,53 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
+using UP.Pages;
 
 namespace UP
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
+        public MainWindow init;
         public MainWindow()
         {
             InitializeComponent();
+            init = this;
+        }
+        public enum pages 
+        {
+            login,
+            registration,
+            profile,
+            project,
+            projectList,
+            projectAdd,
+            taskManage
+        }
+
+        public void OpenPages(pages page) 
+        {
+            switch (page) 
+            {
+                case pages.login:
+                    frame.Navigate(new Login());
+                    break;
+                case pages.registration:
+                    frame.Navigate(new Registration());
+                    break;
+                case pages.profile:
+                    frame.Navigate(new Profile());
+                    break;
+                case pages.project:
+                    frame.Navigate(new Project());
+                    break;
+                case pages.projectList:
+                    frame.Navigate(new ProjectsList());
+                    break;
+                case pages.projectAdd:
+                    frame.Navigate(new ProjectAdd());
+                    break;
+                case pages.taskManage:
+                    frame.Navigate(new TaskManage());
+                    break;
+            }
         }
     }
 }
