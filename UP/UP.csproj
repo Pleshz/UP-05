@@ -143,6 +143,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Elements\SubtaskItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Elements\TaskItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -167,6 +171,9 @@
     </Compile>
     <Compile Include="Elements\ProjectItem.xaml.cs">
       <DependentUpon>ProjectItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Elements\SubtaskItem.xaml.cs">
+      <DependentUpon>SubtaskItem.xaml</DependentUpon>
     </Compile>
     <Compile Include="Elements\TaskItem.xaml.cs">
       <DependentUpon>TaskItem.xaml</DependentUpon>
