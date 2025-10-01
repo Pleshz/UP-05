@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:UP.Pages"
+      xmlns:local="clr-namespace:UP.Elements"
       mc:Ignorable="d" 
       Height="450" Width="800" MinHeight="450" MinWidth="800" Title="Project" Background="#f5f7fa">
 
@@ -13,50 +13,39 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,0,10" Grid.Row="0" >
-            <Button Content="Добавить задачу" Width="120" Height="30" Margin="0,0,10,0" Background="#28a745" Foreground="White" FontWeight="Bold" Cursor="Hand"/>
-            <Button Content="Добавить колонку" Width="120" Height="30" Background="#007ACC" Foreground="White" FontWeight="Bold" Cursor="Hand" Margin="0,0,20,0"/>
-            <Button Content="Вернуться в профиль" Width="140" Height="30" Background="#555" Foreground="White" Cursor="Hand" FontWeight="Bold"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,0,10" Grid.Row="0">
+            <Button Content="Участники" Width="140" Height="35" Margin="0,0,10,0"
+                    Background="#FF9800" Foreground="White" FontWeight="Bold" Cursor="Hand"
+                    Click="OpenMembers"/>
+            <Button x:Name="AddTaskButton" Content="Добавить задачу" Width="140" Height="35" Margin="0,0,10,0"
+                    Background="#28a745" Foreground="White" FontWeight="Bold" Cursor="Hand"
+                    Click="AddTask"/>
+            <Button x:Name="AddColumnButton" Content="Добавить колонку" Width="140" Height="35" Margin="0,0,10,0"
+                    Background="#007ACC" Foreground="White" FontWeight="Bold" Cursor="Hand"
+                    Click="AddColumn"/>
+            <Button Content="Вернуться в профиль" Width="160" Height="35"
+                    Background="#555" Foreground="White" FontWeight="Bold" Cursor="Hand"
+                    Click="BackToProfile"/>
         </StackPanel>
 
-        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Grid.Row="1" Background="Transparent">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Stretch" >
-                <Border Background="White" Width="180" Margin="10" Padding="10" CornerRadius="8" >
-                    <StackPanel>
-                        <TextBlock Text="Создано" FontWeight="Bold" FontSize="18" Margin="0,0,0,10"/>
-                        <ScrollViewer Height="320" VerticalScrollBarVisibility="Auto" Background="#fafafa" Padding="5">
-                            <StackPanel x:Name="ToDoTasksPanel" AllowDrop="True"/>
-                        </ScrollViewer>
-                    </StackPanel>
-                </Border>
-
-                <Border Background="White" Width="180" Margin="10" Padding="10" CornerRadius="8" >
-                    <StackPanel>
-                        <TextBlock Text="В процессе" FontWeight="Bold" FontSize="18" Margin="0,0,0,10"/>
-                        <ScrollViewer Height="320" VerticalScrollBarVisibility="Auto" Background="#fafafa" Padding="5">
-                            <StackPanel x:Name="InProgressTasksPanel" AllowDrop="True"/>
-                        </ScrollViewer>
-                    </StackPanel>
-                </Border>
-
-                <Border Background="White" Width="180" Margin="10" Padding="10" CornerRadius="8" >
-                    <StackPanel>
-                        <TextBlock Text="На проверке" FontWeight="Bold" FontSize="18" Margin="0,0,0,10"/>
-                        <ScrollViewer Height="320" VerticalScrollBarVisibility="Auto" Background="#fafafa" Padding="5">
-                            <StackPanel x:Name="ReviewTasksPanel" AllowDrop="True"/>
-                        </ScrollViewer>
-                    </StackPanel>
-                </Border>
-
-                <Border Background="White" Width="180" Margin="10" Padding="10" CornerRadius="8" >
-                    <StackPanel>
-                        <TextBlock Text="Готово" FontWeight="Bold" FontSize="18" Margin="0,0,0,10"/>
-                        <ScrollViewer Height="320" VerticalScrollBarVisibility="Auto" Background="#fafafa" Padding="5">
-                            <StackPanel x:Name="DoneTasksPanel" AllowDrop="True"/>
-                        </ScrollViewer>
-                    </StackPanel>
-                </Border>
-            </StackPanel>
+        <ScrollViewer Grid.Row="1"
+                      HorizontalScrollBarVisibility="Auto"
+                      VerticalScrollBarVisibility="Disabled"
+                      Background="Transparent">
+            <ItemsControl x:Name="ColumnsItemsControl"
+                          ItemsSource="{Binding Columns}"
+                          Margin="0,0,0,10">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <local:ColumnItem/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
         </ScrollViewer>
     </Grid>
 </Page>

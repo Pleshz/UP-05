@@ -46,16 +46,15 @@ namespace UP.Classes.Context
                                         $"`TaskId` = {this.TaskId}, " +
                                         $"`AssignedUserId` = {this.AssignedUserId}, " +
                                         $"`ColumnId` = {this.ColumnId}, " +
-                                        $"`DueDate` = '{this.DueDate}', " +
-                                        $"`CreatedAt` = '{this.CreatedAt}', " +
-                                        $"`UpdatedAt` = '{this.UpdatedAt}' " +
+                                        $"`DueDate` = '{this.DueDate.ToString("yyyy-MM-dd HH:MM:ss")}', " +
+                                        $"`UpdatedAt` = '{this.UpdatedAt.ToString("yyyy-MM-dd HH:MM:ss")}' " +
                                     $"WHERE `Id` = {this.Id}", connection);
             }
             else
             {
                 Connection.Query("INSERT INTO `Subtasks` " +
                                     "(`Name`, `Description`, `TaskId`, `AssignedUserId`, `ColumnId`, `DueDate`, `CreatedAt`, `UpdatedAt`) " +
-                                 $"VALUES ('{this.Name}', '{this.Description}', {this.TaskId}, {this.AssignedUserId}, {this.ColumnId}, '{this.DueDate}', '{this.CreatedAt}', '{this.UpdatedAt}')", connection);
+                                 $"VALUES ('{this.Name}', '{this.Description}', {this.TaskId}, {this.AssignedUserId}, {this.ColumnId}, '{this.DueDate.ToString("yyyy-MM-dd HH:MM:ss")}', '{this.CreatedAt.ToString("yyyy-MM-dd HH:MM:ss")}', '{this.UpdatedAt.ToString("yyyy-MM-dd HH:MM:ss")}')", connection);
             }
             Connection.CloseConnection(connection);
         }

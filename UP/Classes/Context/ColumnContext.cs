@@ -1,5 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 using UP.Classes.Common;
 using UP.Interfaces;
 using UP.Models;
@@ -8,6 +10,7 @@ namespace UP.Classes.Context
 {
     public class ColumnContext : Column, IColumn
     {
+        public ObservableCollection<TaskContext> Tasks { get; set; } = new ObservableCollection<TaskContext>();
         public List<ColumnContext> AllColumns()
         {
             List<ColumnContext> allColumns = new List<ColumnContext>();
@@ -51,8 +54,23 @@ namespace UP.Classes.Context
         public void Delete()
         {
             MySqlConnection connection = Connection.OpenConnection();
-            Connection.Query($"DELETE FROM `Columns` WHERE `Id` = {this.Id}", connection);
-            Connection.CloseConnection(connection);
+
+            try
+            {
+                var taskContext = new TaskContext();
+                var tasks = taskContext.AllTasks().Where(t => t.ColumnId == this.Id).ToList();
+
+                foreach (var task in tasks)
+                {
+                    task.Delete();
+                }
+
+                Connection.Query($"DELETE FROM `Columns` WHERE `Id` = {this.Id}", connection);
+            }
+            finally
+            {
+                Connection.CloseConnection(connection);
+            }
         }
     }
 }

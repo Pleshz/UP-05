@@ -1,28 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+﻿using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using UP.Classes.Context;
 
 namespace UP.Elements
 {
-    /// <summary>
-    /// Логика взаимодействия для ProjectItem.xaml
-    /// </summary>
     public partial class ProjectItem : UserControl
     {
         public ProjectItem()
         {
             InitializeComponent();
+        }
+
+        private void UserControl_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (DataContext is ProjectContext project)
+            {
+                MainWindow.CurrentProject = project;
+                MainWindow.init.OpenPages(MainWindow.pages.project);
+            }
         }
     }
 }

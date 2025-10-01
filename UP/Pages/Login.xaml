@@ -34,7 +34,7 @@
 
                 <Button Click="LoginBtn" Content="Авторизоваться" Height="40" Background="#007ACC" Foreground="White" FontSize="16" FontWeight="Bold" Cursor="Hand" />
 
-                <TextBlock Text="У вас нет аккаунта?" HorizontalAlignment="Center" Margin="20,30,20,0" Foreground="#777"/>
+                <TextBlock MouseLeftButtonUp="goToRegister" Text="У вас нет аккаунта?" HorizontalAlignment="Center" Margin="20,30,20,0" Foreground="#777"/>
             </StackPanel>
         </Border>
     </Grid>

@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:UP.Elements"
-             Height="100" Width="Auto" Margin="5">
+             Height="100" Width="Auto" Margin="5" MouseLeftButtonUp="UserControl_MouseLeftButtonUp">
     <Border Background="#fefefe" CornerRadius="5" BorderBrush="#ddd" BorderThickness="1" Padding="10" >
         <Grid>
             <Grid.ColumnDefinitions>

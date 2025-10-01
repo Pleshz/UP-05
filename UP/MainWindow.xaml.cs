@@ -8,11 +8,16 @@ namespace UP
     {
         public static MainWindow init;
         public static UserContext CurrentUser { get; set; }
+        public static ProjectContext CurrentProject { get; set; }
+        public static TaskContext CurrentTask { get; set; }
+        public static ColumnContext CurrentColumn { get; set; }
+        public static SubtaskContext CurrentSubtask { get; set; }
 
         public MainWindow()
         {
             InitializeComponent();
             init = this;
+            OpenPages(pages.login);
         }
         public enum pages 
         {
@@ -22,7 +27,10 @@ namespace UP
             project,
             projectList,
             projectAdd,
-            taskManage
+            taskManage,
+            columnManage,
+            subtaskManage,
+            projectMembers
         }
 
         public void OpenPages(pages page) 
@@ -49,6 +57,15 @@ namespace UP
                     break;
                 case pages.taskManage:
                     frame.Navigate(new TaskManage());
+                    break;
+                case pages.columnManage:
+                    frame.Navigate(new ColumnManage());
+                    break;
+                case pages.subtaskManage:
+                    frame.Navigate(new SubtaskManage());
+                    break;
+                case pages.projectMembers:
+                    frame.Navigate(new ProjectMembers());
                     break;
             }
         }

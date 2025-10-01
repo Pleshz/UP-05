@@ -9,10 +9,31 @@
     <Grid Margin="20">
         <Border Background="White" Padding="20" CornerRadius="10" VerticalAlignment="Stretch" Height="Auto">
             <DockPanel LastChildFill="True">
-                <Button Content="Создать проект" Width="160" Height="35" DockPanel.Dock="Top" Margin="0,0,0,10" Background="#28a745" Foreground="White" FontWeight="Bold" />
+
+                <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0,0,0,10">
+                    <TextBox x:Name="SearchBox" Width="200" Margin="0,0,10,0" 
+                         Text=""
+                         TextChanged="SearchBox_TextChanged"/>
+
+                    <ComboBox x:Name="FilterBox" Width="160" Margin="0,0,10,0" SelectionChanged="FilterBox_SelectionChanged">
+                        <ComboBoxItem Content="Все проекты" IsSelected="True"/>
+                        <ComboBoxItem Content="Мои проекты"/>
+                        <ComboBoxItem Content="Публичные проекты"/>
+                    </ComboBox>
+
+                    <ComboBox x:Name="SortBox" Width="180" SelectionChanged="SortBox_SelectionChanged">
+                        <ComboBoxItem Content="По дате создания (новые)" IsSelected="True"/>
+                        <ComboBoxItem Content="По дате обновления"/>
+                        <ComboBoxItem Content="По имени (А-Я)"/>
+                        <ComboBoxItem Content="По имени (Я-А)"/>
+                    </ComboBox>
+
+                    <Button Click="CreateProject" Content="Создать проект" Width="160" Height="35" 
+                        Margin="10,0,0,0" Background="#28a745" Foreground="White" FontWeight="Bold" />
+                </StackPanel>
 
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <ItemsControl x:Name="ProjectsItemsControl" >
+                    <ItemsControl x:Name="ProjectsItemsControl">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
                                 <local:ProjectItem/>

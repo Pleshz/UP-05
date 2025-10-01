@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UP.Classes.Common;
 using UP.Interfaces;
 
@@ -46,16 +47,15 @@ namespace UP.Classes.Context
                                         $"`ColumnId` = {this.ColumnId}, " +
                                         $"`ProjectId` = {this.ProjectId}, " +
                                         $"`CreatorId` = {this.CreatorId}, " +
-                                        $"`CreatedAt` = '{this.CreatedAt}', " +
-                                        $"`UpdatedAt` = '{this.UpdatedAt}', " +
-                                        $"`DueDate` = {(this.DueDate.HasValue ? $"'{this.DueDate.Value}'" : "NULL")} " +
+                                        $"`UpdatedAt` = '{this.UpdatedAt.ToString("yyyy-MM-dd HH:MM:ss")}', " +
+                                        $"`DueDate` = {(this.DueDate.HasValue ? $"'{this.DueDate.Value.ToString("yyyy-MM-dd HH:MM:ss")}'" : "NULL")} " +
                                     $"WHERE `Id` = {this.Id}", connection);
             }
             else
             {
                 Connection.Query("INSERT INTO `Tasks` " +
                                     "(`Title`, `Description`, `ColumnId`, `ProjectId`, `CreatorId`, `CreatedAt`, `UpdatedAt`, `DueDate`) " +
-                                 $"VALUES ('{this.Title}', '{this.Description}', {this.ColumnId}, {this.ProjectId}, {this.CreatorId}, '{this.CreatedAt}', '{this.UpdatedAt}', {(this.DueDate.HasValue ? $"'{this.DueDate.Value}'" : "NULL")})", connection);
+                                 $"VALUES ('{this.Title}', '{this.Description}', {this.ColumnId}, {this.ProjectId}, {this.CreatorId}, '{this.CreatedAt.ToString("yyyy-MM-dd HH:MM:ss")}', '{this.UpdatedAt.ToString("yyyy-MM-dd HH:MM:ss")}', {(this.DueDate.HasValue ? $"'{this.DueDate.Value.ToString("yyyy-MM-dd HH:MM:ss")}'" : "NULL")})", connection);
             }
             Connection.CloseConnection(connection);
         }
@@ -63,8 +63,23 @@ namespace UP.Classes.Context
         public void Delete()
         {
             MySqlConnection connection = Connection.OpenConnection();
-            Connection.Query($"DELETE FROM `Tasks` WHERE `Id` = {this.Id}", connection);
-            Connection.CloseConnection(connection);
+
+            try
+            {
+                var subtaskContext = new SubtaskContext();
+                var subtasks = subtaskContext.AllSubtasks().Where(s => s.TaskId == this.Id).ToList();
+
+                foreach (var sub in subtasks)
+                {
+                    sub.Delete();
+                }
+
+                Connection.Query($"DELETE FROM `Tasks` WHERE `Id` = {this.Id}", connection);
+            }
+            finally
+            {
+                Connection.CloseConnection(connection);
+            }
         }
     }
 }

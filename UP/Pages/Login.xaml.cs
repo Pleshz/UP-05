@@ -37,5 +37,10 @@ namespace UP.Pages
             MainWindow.CurrentUser = (UserContext)user;
             MainWindow.init.OpenPages(MainWindow.pages.profile);
         }
+
+        public void goToRegister(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            MainWindow.init.OpenPages(MainWindow.pages.registration);
+        }
     }
 }

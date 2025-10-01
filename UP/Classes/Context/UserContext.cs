@@ -42,8 +42,7 @@ namespace UP.Classes.Context
                                         $"`Login` = '{this.Login}', " +
                                         $"`Email` = '{this.Email}', " +
                                         $"`Password` = '{this.Password}', " +
-                                        $"`CreatedAt` = '{this.CreatedAt}', " +
-                                        $"`UpdateAt` = '{this.UpdateAt}', " +
+                                        $"`UpdateAt` = '{this.UpdateAt.ToString("yyyy-MM-dd HH:MM:ss")}', " +
                                         $"`FullName` = '{this.FullName}', " +
                                         $"`Bio` = '{this.Bio}' " +
                                     $"WHERE `Id` = {this.Id}", connection);
@@ -52,7 +51,7 @@ namespace UP.Classes.Context
             {
                 Connection.Query("INSERT INTO `Users` " +
                                     "(`Login`, `Email`, `Password`, `CreatedAt`, `UpdateAt`, `FullName`, `Bio`) " +
-                                 $"VALUES ('{this.Login}', '{this.Email}', '{this.Password}', '{this.CreatedAt}', '{this.UpdateAt}', '{this.FullName}', '{this.Bio}')", connection);
+                                 $"VALUES ('{this.Login}', '{this.Email}', '{this.Password}', '{this.CreatedAt.ToString("yyyy-MM-dd HH:MM:ss")}', '{this.UpdateAt.ToString("yyyy-MM-dd HH:MM:ss")}', '{this.FullName}', '{this.Bio}')", connection);
             }
         }
 
